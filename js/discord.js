@@ -2,6 +2,7 @@ var serverID = getParameterByName('serverID');
 var title = getParameterByName('title') ? getParameterByName('title') : false;
 var invite = getParameterByName('invite') ? getParameterByName('invite') : false;
 var theme = getParameterByName('theme') ? getParameterByName('theme') : 'dark';
+var hide_members = getParameterByName('hide_members') ? getParameterByName('hide_members') : false;
 
 console.log("Starting...");
 
@@ -22,24 +23,27 @@ $.getJSON('https://discordapp.com/api/servers/' + serverID + '/widget.json', fun
 	$('.discord-title').html(titlebar);
 
 	$('.discord-channel').html('Online (' + data.members.length + ')');
-	for (i = 0; i < data.members.length; i++) {
-		var item = document.createElement('li');
-		item.setAttribute('class', 'discord-user');
-		var img = document.createElement('img');
-		img.setAttribute('src', data.members[i].avatar_url);
-		img.setAttribute('class', 'discord-avatar');
-		var div = document.createElement('div');
-		if(data.members[i].status == 'online') {
-			div.setAttribute('class', 'discord-user-status discord-online');
-		} else {
-			div.setAttribute('class', 'discord-user-status discord-idle');
-		}
-		var text = document.createTextNode(data.members[i].username);
-		item.appendChild(img);
-		item.appendChild(div);
-		item.appendChild(text);
+	
+	if(!hide_members) { 
+		for (i = 0; i < data.members.length; i++) {
+			var item = document.createElement('li');
+			item.setAttribute('class', 'discord-user');
+			var img = document.createElement('img');
+			img.setAttribute('src', data.members[i].avatar_url);
+			img.setAttribute('class', 'discord-avatar');
+			var div = document.createElement('div');
+			if(data.members[i].status == 'online') {
+				div.setAttribute('class', 'discord-user-status discord-online');
+			} else {
+				div.setAttribute('class', 'discord-user-status discord-idle');
+			}
+			var text = document.createTextNode(data.members[i].username);
+			item.appendChild(img);
+			item.appendChild(div);
+			item.appendChild(text);
 
-		$('.discord-userlist').append(item);
+			$('.discord-userlist').append(item);
+		}
 	}
 });
 
