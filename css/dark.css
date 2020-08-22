@@ -24,6 +24,7 @@ body {
 }
 
 .title-text , .invite-button {
-  align-self: auto
+  align-self: auto;
+ display: block;
 }
 
