@@ -23,7 +23,7 @@ body {
  align-content: center;
 }
 
-.title-text , .invite-text {
+.title-text , .invite-button {
   align-self: auto;
  display: block;
 }
