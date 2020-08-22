@@ -12,7 +12,7 @@ $.getJSON('https://discordapp.com/api/servers/' + serverID + '/widget.json', fun
 	titlebar += `<h3 class='title-text'>` + title + ` (` + data.members.length + `)</h3>`;
 	
 	if (invite) {
-		titlebar += `<a target="_parent" class='invite-button' href='` + data.instant_invite + `'>JOIN</a>`;
+		titlebar += `<a target="_blank" class='invite-button' href='` + data.instant_invite + `'>JOIN</a>`;
 	}
 
 	$('body').html(titlebar);
