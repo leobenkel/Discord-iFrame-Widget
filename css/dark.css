@@ -21,10 +21,14 @@ body {
  justify-content: space-between;
  align-items: center;
  align-content: center;
+ width: 100%;
 }
 
 .title-text , .invite-button {
   align-self: auto;
  display: block;
+ margin: 0;
+ padding: 0;
+ display: flex;
 }
 
