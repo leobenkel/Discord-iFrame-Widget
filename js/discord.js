@@ -15,7 +15,7 @@ $.getJSON('https://discordapp.com/api/servers/' + serverID + '/widget.json', fun
 		titlebar += `<span class='invite-text'><a target="_parent" class='invite-button' href='` + data.instant_invite + `'>JOIN</a></span>`;
 	}
 
-	$('.discord-title').html(titlebar);
+	$('body').html(titlebar);
 });
 
 
