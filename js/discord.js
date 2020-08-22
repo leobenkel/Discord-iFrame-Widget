@@ -3,7 +3,10 @@ var title = getParameterByName('title') ? getParameterByName('title') : false;
 var invite = getParameterByName('invite') ? getParameterByName('invite') : false;
 var theme = getParameterByName('theme') ? getParameterByName('theme') : 'dark';
 
+console.log("Starting...");
+
 $.getJSON('https://discordapp.com/api/servers/' + serverID + '/widget.json', function(data) {
+	console.log("Got data.");
 	$("head").append('<link rel="stylesheet" href="css/' + theme + '.css" />');
 
 	var titlebar = ``;
